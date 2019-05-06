@@ -41,7 +41,7 @@ public class Foods {
         final int numFoods = random.nextInt(2) + 1; // 1 or 2 foods
 
         for (int i = 1; i <= numFoods; i++) {
-            if (CollisionSystem.INSTANCE.getTotalFreeTiles() == 0) return false;
+            if (CollisionSystem.INSTANCE.getFreeTiles() == 0) return false;
 
             int x, y;
             do {

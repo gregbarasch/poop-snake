@@ -6,7 +6,7 @@ public enum CollisionSystem {
 
     INSTANCE;
 
-    private static int unOccupiedTiles = WINDOW_SIZE_IN_TILES * WINDOW_SIZE_IN_TILES; // TODO max limitation
+    private static int freeTiles = WINDOW_SIZE_IN_TILES * WINDOW_SIZE_IN_TILES; // TODO max limitation
 
     private static final boolean[][] blocked = new boolean[WINDOW_SIZE_IN_TILES][WINDOW_SIZE_IN_TILES];
     private static final boolean[][] occupied = new boolean[WINDOW_SIZE_IN_TILES][WINDOW_SIZE_IN_TILES]; // but still moveTo-able
@@ -14,21 +14,23 @@ public enum CollisionSystem {
     public void block(int x, int y) {
         occupied[x][y] = true;
         blocked[x][y] = true;
+        freeTiles--;
     }
 
     public void unblock(int x, int y) {
         occupied[x][y] = false;
         blocked[x][y] = false;
+        freeTiles++;
     }
 
     public void occupy(int x, int y) {
         occupied[x][y] = true;
-        unOccupiedTiles--;
+        freeTiles--;
     }
 
     public void deOccupy(int x, int y) {
         occupied[x][y] = false;
-        unOccupiedTiles++;
+        freeTiles++;
     }
 
     public boolean isBlocked(int x, int y) {
@@ -39,7 +41,7 @@ public enum CollisionSystem {
         return occupied[x][y];
     }
 
-    public int getTotalFreeTiles() {
-        return unOccupiedTiles;
+    public int getFreeTiles() {
+        return freeTiles;
     }
 }
