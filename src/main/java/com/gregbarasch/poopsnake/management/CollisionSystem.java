@@ -6,10 +6,10 @@ public enum CollisionSystem {
 
     INSTANCE;
 
-    private static int freeTiles = WINDOW_SIZE_IN_TILES * WINDOW_SIZE_IN_TILES; // TODO max limitation
+    private int freeTiles = WINDOW_SIZE_IN_TILES * WINDOW_SIZE_IN_TILES; // TODO max limitation
 
-    private static final boolean[][] blocked = new boolean[WINDOW_SIZE_IN_TILES][WINDOW_SIZE_IN_TILES];
-    private static final boolean[][] occupied = new boolean[WINDOW_SIZE_IN_TILES][WINDOW_SIZE_IN_TILES]; // but still moveTo-able
+    private final boolean[][] blocked = new boolean[WINDOW_SIZE_IN_TILES][WINDOW_SIZE_IN_TILES];
+    private final boolean[][] occupied = new boolean[WINDOW_SIZE_IN_TILES][WINDOW_SIZE_IN_TILES]; // but still moveTo-able
 
     public void block(int x, int y) {
         occupied[x][y] = true;

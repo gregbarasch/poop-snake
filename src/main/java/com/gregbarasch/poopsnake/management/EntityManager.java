@@ -12,7 +12,7 @@ public enum  EntityManager {
 
     INSTANCE;
 
-    private static final Background background = new Background();
+    private final Background background = new Background();
     private final Snake snake = new Snake();
     private final Foods foods = new Foods();
 

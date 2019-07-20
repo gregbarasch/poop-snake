@@ -8,8 +8,8 @@ public enum StateManager {
 
     INSTANCE;
 
-    private static final AtomicBoolean wantPause = new AtomicBoolean(false);
-    private static final AtomicBoolean wantGameOver = new AtomicBoolean(false);
+    private final AtomicBoolean wantPause = new AtomicBoolean(false);
+    private final AtomicBoolean wantGameOver = new AtomicBoolean(false);
 
     /**
      * @return whether the game should be in a paused state or not. Doesnt actually make the transition tho

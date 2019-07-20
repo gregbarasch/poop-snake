@@ -33,13 +33,7 @@ public class Snake {
         currentHeadImage = headRightImage;
 
         for (int y = 14; y >= 14; y--) {
-
-            int x = 14;
-            CollisionSystem.INSTANCE.block(x, y);
-            snakeTiles.addFirst(new Tile(x, y, headRightImage));
-            x--;
-
-            for (; x >= 12; x--) {
+            for (int x = 14; x >= 12; x--) {
                 CollisionSystem.INSTANCE.block(x, y);
                 snakeTiles.addLast(new Tile(x, y, bodyImage));
             }
